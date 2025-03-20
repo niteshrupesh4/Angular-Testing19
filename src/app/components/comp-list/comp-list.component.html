@@ -1,0 +1,25 @@
+<!-- src/app/home/home.component.html -->
+<div class="container">
+    @if (istilesList) {
+        <div class="card-container">
+            @for (item of tiles; track $index) {
+                <div class="card" (click)="onTileCick(item)">
+                    <h3 class="card-title">{{ item.title }}</h3>
+                    <p class="card-description">{{ item.description }}</p>
+                  </div>
+            }
+        </div>
+    }
+    @if (!istilesList) {
+        <div class="card-container">
+            @for (item of lstData; track $index) {
+                <div class="card" [routerLink]="[item.link]">
+                    <h3 class="card-title">{{ item.title }}</h3>
+                    <p class="card-description">{{ item.description }}</p>
+                  </div>
+            }
+        </div>
+    }
+    
+  </div>
+  
